@@ -38,6 +38,7 @@ namespace UsingUITest
             };
             Master = new ContentPage()
             {
+                Title = "Menu",
                 Content = new StackLayout() { BackgroundColor = Color.Red }
             };
 		}
