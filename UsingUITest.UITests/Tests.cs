@@ -57,7 +57,7 @@ namespace UsingUITest.UITests
             app.Tap(Entry);
             app.Screenshot("After Entry");
             app.Back();
-            app.Screenshot("After Back");
+            app.Screenshot("After BackPressed");
         }
     }
 }
