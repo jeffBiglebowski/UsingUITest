@@ -40,13 +40,17 @@ namespace UsingUITest.UITests
 
             app.Screenshot("BeforeTap");
 
-			// Act
-			app.Tap(Button);
+            // Act
+            app.Tap(Button);
 
 			// Assert
 			result = app.Query(DoneMessage);
 			Assert.IsTrue(result.Any(), "The 'clicked' message is not being displayed.");
-		}
+
+
+            app.SwipeLeftToRight();
+            app.Screenshot("Swipe");
+        }
 	}
 }
 

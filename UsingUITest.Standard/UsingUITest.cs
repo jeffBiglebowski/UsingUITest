@@ -5,7 +5,7 @@ using Xamarin.Forms;
 namespace UsingUITest
 {
 
-	public class MyPage : ContentPage
+	public class MyPage : MasterDetailPage
 	{
 		Label l;
 
@@ -24,14 +24,22 @@ namespace UsingUITest
 				AutomationId = "MyLabel"			// referenced in UITests
 			};
 
-			Content = new StackLayout {
-				Padding = new Thickness (0, 20, 0, 0),
-				VerticalOptions = LayoutOptions.CenterAndExpand,
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				Children = {
-					b, l
-				}
-			};
+            Detail = new ContentPage()
+            {
+                Content = new StackLayout
+                {
+                    Padding = new Thickness(0, 20, 0, 0),
+                    VerticalOptions = LayoutOptions.CenterAndExpand,
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    Children = {
+                        b, l
+                    }
+                }
+            };
+            Master = new ContentPage()
+            {
+                Content = new StackLayout() { BackgroundColor = Color.Red }
+            };
 		}
 	}
 
