@@ -38,6 +38,8 @@ namespace UsingUITest.UITests
 			AppResult[] result = app.Query(InitialMessage);
 			Assert.IsTrue(result.Any(), "The initial message string isn't correct - maybe the app wasn't re-started?");
 
+            app.Screenshot("BeforeTap");
+
 			// Act
 			app.Tap(Button);
 
