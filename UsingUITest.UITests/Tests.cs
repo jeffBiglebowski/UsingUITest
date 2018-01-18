@@ -17,6 +17,7 @@ namespace UsingUITest.UITests
 		static readonly Func<AppQuery, AppQuery> InitialMessage = c => c.Marked("MyLabel").Text("Hello, Xamarin.Forms!");
 		static readonly Func<AppQuery, AppQuery> Button = c => c.Marked("MyButton");
         static readonly Func<AppQuery, AppQuery> ContentPage = c => c.Marked("MyContentPage");
+        static readonly Func<AppQuery, AppQuery> Entry = c => c.Marked("MyEntry");
         static readonly Func<AppQuery, AppQuery> DoneMessage = c => c.Marked("MyLabel").Text("Was clicked");
 
 
@@ -47,16 +48,17 @@ namespace UsingUITest.UITests
 			// Assert
 			result = app.Query(DoneMessage);
 			Assert.IsTrue(result.Any(), "The 'clicked' message is not being displayed.");
-
-
         }
 
         [Test]
-        public void Swipe()
+        public void EntryPopup()
         {
-            app.SwipeLeftToRight(ContentPage, 0.8, 1000);
-            app.Screenshot("Swipe");
+            app.Screenshot("Before Entry");
+            app.Tap(Entry);
+            app.Screenshot("After Entry");
+            app.Back();
+            app.Screenshot("After Back");
         }
-	}
+    }
 }
 

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Pages;
 
 using Xamarin.Forms;
 
 namespace UsingUITest
 {
 
-	public class MyPage : MasterDetailPage
+    public class MyPage : MasterDetailPage
 	{
 		Label l;
 
@@ -24,6 +25,27 @@ namespace UsingUITest
 				AutomationId = "MyLabel"			// referenced in UITests
 			};
 
+            var entry = new Entry()
+            {
+                AutomationId = "MyEntry"
+            };
+
+            entry.Focused += (s, e) =>
+            {
+                entry.Unfocus();
+                Device.BeginInvokeOnMainThread(() => Application.Current.MainPage.Navigation.PushPopupAsync(new PopupPage()
+                {
+                    Content = new Label()
+                    {
+                        Text = "Text",
+                        BackgroundColor = Color.Blue,
+                        Opacity = 0.5,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        VerticalOptions = LayoutOptions.FillAndExpand
+                    }
+                }));
+            };
+
             Detail = new ContentPage()
             {
                 AutomationId = "MyContentPage",
@@ -33,7 +55,7 @@ namespace UsingUITest
                     VerticalOptions = LayoutOptions.CenterAndExpand,
                     HorizontalOptions = LayoutOptions.CenterAndExpand,
                     Children = {
-                        b, l
+                        b, l, entry
                     }
                 }
             };

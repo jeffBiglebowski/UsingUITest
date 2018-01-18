@@ -45,9 +45,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UsingUITest.Android\UsingUITest.Android.csproj">
-      <Project>{d900296b-8a16-4966-b834-a791e86d892d}</Project>
-      <Name>UsingUITest.Android</Name>
+    <ProjectReference Include="..\UsingUITestDroid\UsingUITestDroid.csproj">
+      <Project>{fca8cabc-f553-407d-ba17-7a7ec7f6b3ad}</Project>
+      <Name>UsingUITestDroid</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
