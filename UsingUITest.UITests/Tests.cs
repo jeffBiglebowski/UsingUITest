@@ -48,6 +48,11 @@ namespace UsingUITest.UITests
 			Assert.IsTrue(result.Any(), "The 'clicked' message is not being displayed.");
 
 
+        }
+
+        [Test]
+        public void Swipe()
+        {
             app.SwipeLeftToRight();
             app.Screenshot("Swipe");
         }
