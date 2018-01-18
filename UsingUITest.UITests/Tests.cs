@@ -16,7 +16,8 @@ namespace UsingUITest.UITests
 
 		static readonly Func<AppQuery, AppQuery> InitialMessage = c => c.Marked("MyLabel").Text("Hello, Xamarin.Forms!");
 		static readonly Func<AppQuery, AppQuery> Button = c => c.Marked("MyButton");
-		static readonly Func<AppQuery, AppQuery> DoneMessage = c => c.Marked("MyLabel").Text("Was clicked");
+        static readonly Func<AppQuery, AppQuery> ContentPage = c => c.Marked("MyContentPage");
+        static readonly Func<AppQuery, AppQuery> DoneMessage = c => c.Marked("MyLabel").Text("Was clicked");
 
 
 		public Tests(Platform platform)
@@ -53,7 +54,7 @@ namespace UsingUITest.UITests
         [Test]
         public void Swipe()
         {
-            app.SwipeLeftToRight();
+            app.SwipeLeftToRight(ContentPage, 0.8, 1000);
             app.Screenshot("Swipe");
         }
 	}

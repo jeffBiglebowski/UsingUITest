@@ -26,6 +26,7 @@ namespace UsingUITest
 
             Detail = new ContentPage()
             {
+                AutomationId = "MyContentPage",
                 Content = new StackLayout
                 {
                     Padding = new Thickness(0, 20, 0, 0),
